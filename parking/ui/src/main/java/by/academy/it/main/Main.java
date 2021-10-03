@@ -11,6 +11,7 @@ public class Main {
         System.out.println(ticket);
         System.out.println(ticket);
 
+
     }
 
 }
