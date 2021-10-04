@@ -8,7 +8,7 @@ public class Main {
         Printer printer = new Printer();
        Ticket ticket = printer.printTicket("ddd","ddd");
         System.out.println(ticket);
-
+        System.out.println(ticket);
 
     }
 
