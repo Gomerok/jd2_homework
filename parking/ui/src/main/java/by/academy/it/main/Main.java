@@ -9,6 +9,8 @@ public class Main {
        Ticket ticket = printer.printTicket("ddd","ddd");
         System.out.println(ticket);
 
+
+
     }
 
 }
