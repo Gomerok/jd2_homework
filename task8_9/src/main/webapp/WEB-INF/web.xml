@@ -12,7 +12,7 @@
 
   <servlet-mapping>
     <servlet-name>ServletFirst</servlet-name>
-    <url-pattern>/first</url-pattern>
+    <url-pattern>/task8_9</url-pattern>
   </servlet-mapping>
 
 

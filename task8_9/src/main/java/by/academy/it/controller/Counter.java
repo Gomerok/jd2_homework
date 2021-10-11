@@ -16,7 +16,6 @@ public class Counter {
     public static int getCount() {
         try (FileReader fileReader = new FileReader(FileCreator.getPath())) {
             int count = Integer.parseInt(String.valueOf(fileReader.read()));
-            System.out.println(count);
             return count;
         } catch (IOException e) {
             e.printStackTrace();

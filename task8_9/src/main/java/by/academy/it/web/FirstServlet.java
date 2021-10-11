@@ -22,8 +22,6 @@ public class FirstServlet extends HttpServlet {
         out.println("<html><head><title>FirstServlet</title></head>");
         out.println("<h1>This is First Servlet</h1>");
         out.println("Session counter:" + Counter.getCount());
-        //out.println("Session counter:" + count);
-
         out.println("</body></html>");
     }
 
