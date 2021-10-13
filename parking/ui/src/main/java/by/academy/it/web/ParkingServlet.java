@@ -23,7 +23,7 @@ public class ParkingServlet extends HttpServlet {
             resp.setContentType("text/html");
             Date currentDate = new Date();
             String number = req.getParameter("number");
-            addParkingCookie(resp,number);
+            addParkingCookie(resp, number);
             if (map.containsKey(number)) {
                 Date startDate = map.get(number);
                 long seconds = (currentDate.getTime() - startDate.getTime()) / 1000;
@@ -50,7 +50,7 @@ public class ParkingServlet extends HttpServlet {
     }
 
     private void addParkingCookie(HttpServletResponse resp, String number) {
-        Cookie cookie = new Cookie("PLATENUMBER",number);
+        Cookie cookie = new Cookie("PLATENUMBER", number);
         cookie.setMaxAge(300);
         resp.addCookie(cookie);
     }
