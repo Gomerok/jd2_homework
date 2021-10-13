@@ -10,7 +10,7 @@ public class TicketDao {
     }
 
     protected Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/parking", "root", "Gomer0013");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/parking", "root", "root");
     }
 
     public List<Ticket> readAllTickets() throws SQLException {
