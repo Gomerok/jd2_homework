@@ -1,19 +1,32 @@
 package by.academy.it.web;
 
+import by.academy.it.controller.TicketController;
+import by.academy.it.data.Ticket;
+import by.academy.it.data.TicketDao;
+import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @WebServlet(name = "parkingServlet", urlPatterns = "/parking")
 public class ParkingServlet extends HttpServlet {
 
-    private Map<String, Date> map = new HashMap<>();
+    private TicketController controller;
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        try {
+            controller = new TicketController();
+        } catch (ClassNotFoundException e) {
+            throw new ServletException(e.getMessage(), e);
+        }
+
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,25 +34,16 @@ public class ParkingServlet extends HttpServlet {
             HttpSession session = req.getSession();
             PrintWriter writer = resp.getWriter();
             resp.setContentType("text/html");
+
             Date currentDate = new Date();
             String number = req.getParameter("number");
-            addParkingCookie(resp, number);
-            if (map.containsKey(number)) {
-                Date startDate = map.get(number);
-                long seconds = (currentDate.getTime() - startDate.getTime()) / 1000;
-                writer.println("You stayed n our parking:");
-                writer.println(seconds + " seconds");
-                writer.println("Car Number: " + number);
-                map.remove(number);
-            } else {
-                map.put(number, currentDate);
-                writer.println("Welcom to our Parking!");
-                writer.println(currentDate);
-                writer.println("Car Number: " + number);
-            }
+            List<String> messages = controller.handleTicketRequest(number, currentDate);
+            messages.forEach(writer::println);
+            writer.println("Car Number: " + number);
 
             session.setAttribute("number", number);
-        } catch (IOException e) {
+            addParkingCookie(resp, number);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
