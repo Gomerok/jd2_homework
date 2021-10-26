@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class Expenses {
 
-//    java -jar D:\work\task4_5\target\task4_5-1.0-SNAPSHOT-jar-with-dependencies.jar '2020-07-05' 'receiverName' 1000
+//    java -jar D:\work\task4_5\target\Expenses.jar '2020-07-05' 'receiverName' 1000
 
 //    CREATE DATABASE listExpenses;
 //    CREATE TABLE expenses (
