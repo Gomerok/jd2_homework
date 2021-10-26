@@ -1,0 +1,5 @@
+1) SELECT SUM(amount), name FROM expenses, receivers rs WHERE receiver=rs.num GROUP BY receiver;
+
+2)SELECT payDate, SUM(amount) FROM expenses WHERE payDate=(SELECT payDate FROM expenses WHERE VALUE=(SELECT MAX(amount) FROM expenses));
+
+3)SELECT payDate, MAX(amount) FROM expenses WHERE payDate=(SELECT payDate FROM expenses WHERE VALUE=(SELECT MAX(amount) FROM expenses));
