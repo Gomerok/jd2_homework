@@ -30,13 +30,13 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>by.academy.it.expenses.Expenses</mainClass>
+                            <mainClass>by.academy.it.expenses.ExpensesMain</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-                    <finalName>Expenses</finalName>
+                    <finalName>ExpensesMain</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
                 <executions>
