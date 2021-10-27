@@ -17,7 +17,7 @@
 
         </sql>
         <sql>
-            CREATE TABLE IF NOT EXISTS receiver (
+            CREATE TABLE IF NOT EXISTS receivers (
             num int NOT NULL AUTO_INCREMENT,
             receiverName varchar(50) DEFAULT NULL,
             PRIMARY KEY (num)
