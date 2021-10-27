@@ -1,8 +1,11 @@
 package by.academy.it.data;
 
+import java.io.Serializable;
+import java.rmi.server.UID;
 import java.util.Objects;
 
-public class Expense {
+public class Expense implements Serializable {
+    private static final long SerialVersionUID = 1L;
     private int num;
     private String payDate;
     private int receiverId;

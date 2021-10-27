@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DataSource {
     protected Connection getConnection() throws SQLException {
         return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/task7?serverTimezone=UTC",
+                "jdbc:mysql://localhost:3306/listExpenses?serverTimezone=UTC",
                 "root",
                 "root");
     }

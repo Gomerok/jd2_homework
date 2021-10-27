@@ -3,6 +3,7 @@ package by.academy.it.data;
 import java.util.Objects;
 
 public class Receiver {
+    private static final long SerialVersionUID = 1L;
     private int num;
     private String receiverName;
 
