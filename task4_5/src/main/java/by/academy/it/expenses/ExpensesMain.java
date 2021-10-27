@@ -78,12 +78,13 @@ public class ExpensesMain {
         Statement statement = connection.createStatement();
         String query = "SELECT * FROM listExpenses.expenses ;";
         ResultSet result = statement.executeQuery(query);
+        System.out.println("Expenses_Table");
         while (result.next()) {
             int id = result.getInt(1);
-            String paydate = result.getString(2);
+            String payDate = result.getString(2);
             String receiverId = result.getString(3);
             double amount = result.getDouble(4);
-            System.out.println(id + " " + paydate + " " + receiverId + " " + amount);
+            System.out.println(id + " " + payDate + " " + receiverId + " " + amount);
         }
         result.close();
         statement.close();
@@ -93,15 +94,17 @@ public class ExpensesMain {
     private static void getAmount() throws SQLException {
         String template = "SELECT * FROM listExpenses.expenses WHERE amount > ? ;";
         Connection connection = getConnection();
+        double value =100;
         PreparedStatement preparedStatement = connection.prepareStatement(template);
-        preparedStatement.setDouble(1, 100.0);
+        preparedStatement.setDouble(1, value);
         ResultSet result = preparedStatement.executeQuery();
+        System.out.println("getAmount > "+ value);
         while (result.next()){
             int id = result.getInt(1);
-            String paydate = result.getString(2);
+            String payDate = result.getString(2);
             String receiverId = result.getString(3);
             double amount = result.getDouble(4);
-            System.out.println(id + " " + paydate + " " + receiverId + " " + amount);
+            System.out.println(id + " " + payDate + " " + receiverId + " " + amount);
         }
         result.close();
         preparedStatement.close();
@@ -118,9 +121,10 @@ public class ExpensesMain {
                 addReceiver(receiver);
             }
             addExpense(payDate, receiver, amount);  //Task4--------
+            showTable();
+            System.out.println();
             getAmount(); //Task5--------
             System.out.println();
-            showTable();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
