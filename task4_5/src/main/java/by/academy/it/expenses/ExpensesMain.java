@@ -2,9 +2,9 @@ package by.academy.it.expenses;
 
 import java.sql.*;
 
-public class Expenses {
+public class ExpensesMain {
 
-//    java -jar D:\work\task4_5\target\Expenses.jar '2020-07-05' 'receiverName' 1000
+//    java -jar D:\work\task4_5\target\ExpensesMain.jar '2020-07-05' 'receiverName' 1000
 
 //    CREATE DATABASE listExpenses;
 //    CREATE TABLE expenses (
@@ -15,7 +15,7 @@ public class Expenses {
 //    PRIMARY KEY (num)
 //    )
 
-//    CREATE TABLE receiver (
+//    CREATE TABLE receivers (
 //    num int NOT NULL AUTO_INCREMENT,
 //    receiverName varchar(50) DEFAULT NULL,
 //    PRIMARY KEY (num)
@@ -32,7 +32,7 @@ public class Expenses {
     public static boolean isThereReceiver(String receiver) throws SQLException, ClassNotFoundException {
         Connection connection = getConnection();
         Statement statement = connection.createStatement();
-        String query = "SELECT * FROM listExpenses.receiver WHERE receiverName= " + receiver + " ;";
+        String query = "SELECT * FROM listExpenses.receivers WHERE receiverName= " + receiver + " ;";
         ResultSet result = statement.executeQuery(query);
         if (result.next()) {
             result.close();
@@ -49,7 +49,7 @@ public class Expenses {
     public static void addReceiver(String receiver) throws SQLException, ClassNotFoundException {
         Connection connection = getConnection();
         Statement statement = connection.createStatement();
-        String query = "INSERT INTO listExpenses.receiver (receiverName) values" +
+        String query = "INSERT INTO listExpenses.receivers (receiverName) values" +
                 "(" + receiver + ");";
         statement.executeUpdate(query);
         statement.close();
@@ -59,7 +59,7 @@ public class Expenses {
     public static void addExpense(String payDate, String receiver, Double amount) throws SQLException {
         Connection connection = getConnection();
         Statement statement = connection.createStatement();
-        String query = "SELECT * FROM listExpenses.receiver WHERE receiverName= " + receiver + " ;";
+        String query = "SELECT * FROM listExpenses.receivers WHERE receiverName= " + receiver + " ;";
         ResultSet result = statement.executeQuery(query);
         int receiverId = 0;
         if (result.next()) {
