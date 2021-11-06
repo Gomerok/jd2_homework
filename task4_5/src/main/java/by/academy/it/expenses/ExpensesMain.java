@@ -111,22 +111,27 @@ public class ExpensesMain {
         connection.close();
     }
 
-    public static void main(String... args) {
-        String payDate = args[0];
-        String receiver = args[1];
-        double amount = Double.parseDouble(args[2]);
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            if (!isThereReceiver(receiver)) {
-                addReceiver(receiver);
+    public static void main(String[] args) {
+        if(args.length != 0){
+            String payDate = args[0];
+            String receiver = args[1];
+            double amount = Double.parseDouble(args[2]);
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                if (!isThereReceiver(receiver)) {
+                    addReceiver(receiver);
+                }
+                addExpense(payDate, receiver, amount);  //Task4--------
+                showTable();
+                System.out.println();
+                getAmount(); //Task5--------
+                System.out.println();
+            } catch (ClassNotFoundException | SQLException e) {
+                e.printStackTrace();
             }
-            addExpense(payDate, receiver, amount);  //Task4--------
-            showTable();
-            System.out.println();
-            getAmount(); //Task5--------
-            System.out.println();
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+        }else{
+            System.out.println("Введите параметры!");
         }
+
     }
 }
