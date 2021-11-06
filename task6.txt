@@ -1,5 +1,47 @@
-1) SELECT SUM(amount), name FROM expenses, receivers rs WHERE receiver=rs.num GROUP BY receiver;
+REATE DATABASE listExpenses;
+CREATE TABLE listExpenses.expenses (
+    num int NOT NULL AUTO_INCREMENT,
+    payDate date DEFAULT NULL,
+    receiverId int DEFAULT NULL,
+    amount decimal(10,2) DEFAULT NULL,
+    PRIMARY KEY (num)
+);
 
-2)SELECT payDate, SUM(amount) FROM expenses WHERE payDate=(SELECT payDate FROM expenses WHERE VALUE=(SELECT MAX(amount) FROM expenses));
+CREATE TABLE listExpenses.receivers (
+    num int NOT NULL AUTO_INCREMENT,
+    receiverName varchar(50) DEFAULT NULL,
+    PRIMARY KEY (num)
+);
+    
+    
+INSERT INTO listExpenses.expenses(payDate,receiverId,amount) VALUES 
+('2011-05-10',1,20000),
+('2011-05-10',2,94200),
+('2011-05-11',3,10000),
+('2011-05-11',2,12950); 
 
-3)SELECT payDate, MAX(amount) FROM expenses WHERE payDate=(SELECT payDate FROM expenses WHERE VALUE=(SELECT MAX(amount) FROM expenses));
+INSERT INTO listExpenses.receivers(receiverName) VALUES 
+('Интернет-провайдер Соло'),
+('Гипермаркет Корона'),
+('МТС');
+
+
+-- Запрос1
+SELECT receiverName,SUM(amount) 
+FROM listExpenses.receivers 
+INNER JOIN listExpenses.expenses ON listExpenses.receivers.num = listExpenses.expenses.receiverId 
+GROUP BY receiverName;
+
+-- Запрос2
+SELECT payDate, SUM(amount) 
+FROM listExpenses.expenses 
+WHERE payDate=(
+SELECT payDate FROM listExpenses.expenses WHERE amount=(
+SELECT MAX(amount) FROM listExpenses.expenses));
+
+-- Запрос3
+SELECT payDate, MAX(amount) 
+FROM listExpenses.expenses 
+WHERE payDate=(
+SELECT payDate FROM listExpenses.expenses WHERE amount=(
+SELECT MAX(amount) FROM listExpenses.expenses));
