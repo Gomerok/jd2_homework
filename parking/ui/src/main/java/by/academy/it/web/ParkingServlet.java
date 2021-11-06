@@ -1,8 +1,6 @@
 package by.academy.it.web;
 
 import by.academy.it.controller.TicketController;
-import by.academy.it.data.Ticket;
-import by.academy.it.data.TicketDao;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

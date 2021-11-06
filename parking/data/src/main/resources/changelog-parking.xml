@@ -13,4 +13,20 @@
             );
         </sql>
     </changeSet>
+    <changeSet id="2" author="gomerov">
+        <sql>
+            ALTER TABLE tickets ADD COLUMN id int NOT NULL;
+            ALTER TABLE tickets ADD PRIMARY KEY (id);
+        </sql>
+    </changeSet>
+    <changeSet id="3" author="gomerov">
+        <sql>
+            CREATE TABLE IF NOT EXISTS persons (
+            name varchar(100) NOT NULL,
+            second_name varchar(100) NOT NULL,
+            id int NOT NULL,
+            PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
 </databaseChangeLog>

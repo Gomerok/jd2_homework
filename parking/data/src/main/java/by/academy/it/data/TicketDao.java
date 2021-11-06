@@ -1,5 +1,7 @@
 package by.academy.it.data;
 
+import by.academy.it.pojo.Ticket;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +35,11 @@ public class TicketDao {
 
     public void saveNewTicket(Ticket ticket) throws SQLException {
         Connection con = dataSource.getConnection();
-        String sql = "INSERT INTO tickets VALUES (?, ?)";
+        String sql = "INSERT INTO tickets VALUES (?, ?, ?)";
         PreparedStatement prepare = con.prepareStatement(sql);
         prepare.setTimestamp(1, new Timestamp(ticket.getDate().getTime()));
         prepare.setString(2, ticket.getLicensePlateNumber());
+        prepare.setLong(3,ticket.getId());
         prepare.executeUpdate();
         prepare.close();
         con.close();

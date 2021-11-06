@@ -1,6 +1,6 @@
 package by.academy.it.controller;
 
-import by.academy.it.data.Ticket;
+import by.academy.it.pojo.Ticket;
 import by.academy.it.data.TicketDao;
 
 
