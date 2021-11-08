@@ -31,7 +31,80 @@
             <artifactId>lombok</artifactId>
             <version>1.18.16</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>by.academy.it.loader.PersonLoader</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <finalName>Main</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>package</phase> <!-- bind to the packaging phase -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>4.3.5</version>
+                <executions>
+                    <execution>
+                        <id>create_prod_db</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                        <configuration>
+                            <url>jdbc:mysql://localhost:3306/task2_3?createDatabaseIfNotExist=true</url>
+                            <username>root</username>
+                            <password>root</password>
+                            <driver>com.mysql.cj.jdbc.Driver</driver>
+                            <changeLogFile>src/main/resources/changelog_task2_3.xml</changeLogFile>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>create_test_db</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                        <configuration>
+                            <url>jdbc:mysql://localhost:3306/task2_3_test?createDatabaseIfNotExist=true</url>
+                            <username>root</username>
+                            <password>root</password>
+                            <driver>com.mysql.cj.jdbc.Driver</driver>
+                            <changeLogFile>src/main/resources/changelog_task2_3.xml</changeLogFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>

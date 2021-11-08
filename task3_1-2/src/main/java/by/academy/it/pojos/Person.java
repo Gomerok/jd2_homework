@@ -3,19 +3,15 @@ package by.academy.it.pojos;
 import jdk.jfr.DataAmount;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Data
-@EqualsAndHashCode
 @Entity
+@Table(name = "persons")
 public class Person implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column
     private Integer age;
@@ -27,11 +23,10 @@ public class Person implements Serializable {
     public Person() {
     }
 
-    public Person(Integer id, Integer age, String name, String surname) {
-        this.id = id;
-        this.age = age;
+    public Person(String name, String surname, Integer age) {
         this.name = name;
         this.surname = surname;
+        this.age = age;
     }
 
     public Integer getId() {
