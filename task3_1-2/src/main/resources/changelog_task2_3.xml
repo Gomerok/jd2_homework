@@ -17,8 +17,8 @@
             );
         </sql>
     </changeSet>
-    <changeSet id="2" author="gomerov">
-        <sql>
+<!--    <changeSet id="2" author="gomerov">-->
+<!--        <sql>-->
 <!--            При сборке триггер не создаётся, и приложение падает но если этот же триггер создать через workbench-->
 <!--            всё успешно создаётся и при insert работает -->
 <!--            DELIMITER //-->
@@ -31,6 +31,6 @@
 <!--            SET MESSAGE_TEXT = 'Wrong age or you are under 18';-->
 <!--            END IF//-->
 <!--            DELIMITER ;-->
-        </sql>
-    </changeSet>
+<!--        </sql>-->
+<!--    </changeSet>-->
 </databaseChangeLog>
