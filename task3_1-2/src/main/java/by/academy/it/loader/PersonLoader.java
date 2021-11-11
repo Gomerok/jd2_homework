@@ -8,6 +8,21 @@ import javax.persistence.EntityManager;
 
 public class PersonLoader {
     public static void main(String[] args) {
+
+        //Запуск программы: java -jar D:\work\task3_1-2\target\Main.jar
+        //Через changelog trigger создать не удалось, через workbench всё работает(в changelog trigger закомментирован)
+
+//        DELIMITER //
+//        CREATE TRIGGER validate_age
+//        BEFORE INSERT
+//        ON persons
+//        FOR EACH ROW
+//        IF NEW.age>100 and NEW.age<18 THEN
+//        SIGNAL SQLSTATE '45000'
+//        SET MESSAGE_TEXT = 'Wrong age or you are under 18';
+//        END IF//
+//        DELIMITER ;
+
         //Task1
         Person person = new Person("Petrov", "Ivan", 35);
         EntityManager em = HibernateUtil.getEntityManager();

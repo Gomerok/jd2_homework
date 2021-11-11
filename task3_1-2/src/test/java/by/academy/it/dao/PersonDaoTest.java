@@ -50,7 +50,7 @@ public class PersonDaoTest {
         Serializable id = personDao.savePerson(person);
 
         //Then
-        assertEquals(1, id);
+        assertEquals(person.getId(), id);
         personDao.deletePerson(person);
     }
 
@@ -87,7 +87,7 @@ public class PersonDaoTest {
     public void getPerson() {
         Person person = new Person("Ivan", "Ivanov", 24);
         personDao.savePerson(person);
-        Person personGet = personDao.getPerson(4);
+        Person personGet = personDao.getPerson(person.getId());
         personDao.deletePerson(person);
         Assert.assertEquals(person, personGet);
     }
