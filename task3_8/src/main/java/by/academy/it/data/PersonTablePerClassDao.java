@@ -1,8 +1,8 @@
 package by.academy.it.data;
 
-import by.academy.it.entities.personTablePerClass.Employee;
-import by.academy.it.entities.personTablePerClass.Person;
-import by.academy.it.entities.personTablePerClass.Student;
+import by.academy.it.entities.personTablePerClass.EmployeeTPC;
+import by.academy.it.entities.personTablePerClass.PersonTPC;
+import by.academy.it.entities.personTablePerClass.StudentTPC;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -21,7 +21,7 @@ public class PersonTablePerClassDao {
         this(SessionFactoryHolder.getSessionFactory());
     }
 
-    public Serializable savePerson(Person person) {
+    public Serializable savePersonTPC(PersonTPC person) {
         Session session = sessionFactory.openSession();
         final Transaction transaction = session.beginTransaction();
         try {
@@ -37,7 +37,7 @@ public class PersonTablePerClassDao {
         }
     }
 
-    public Serializable saveEmployee(Employee employee) {
+    public Serializable saveEmployeeTPC(EmployeeTPC employee) {
         Session session = sessionFactory.openSession();
         final Transaction transaction = session.beginTransaction();
         try {
@@ -53,7 +53,7 @@ public class PersonTablePerClassDao {
         }
     }
 
-    public Serializable saveStudent(Student student) {
+    public Serializable saveStudentTPC(StudentTPC student) {
         Session session = sessionFactory.openSession();
         final Transaction transaction = session.beginTransaction();
         try {
@@ -69,10 +69,10 @@ public class PersonTablePerClassDao {
         }
     }
 
-    public Person getPerson(Serializable id) {
+    public PersonTPC getPerson(Serializable id) {
         Session session = sessionFactory.openSession();
         try {
-            Person getPerson = session.get(Person.class, id);
+            PersonTPC getPerson = session.get(PersonTPC.class, id);
             if (getPerson != null) {
                 return getPerson;
             }
@@ -84,10 +84,10 @@ public class PersonTablePerClassDao {
         return null;
     }
 
-    public Person getEmployee(Serializable id) {
+    public EmployeeTPC getEmployeeTPC(Serializable id) {
         Session session = sessionFactory.openSession();
         try {
-            Person getEmployee = session.get(Employee.class, id);
+            EmployeeTPC getEmployee = session.get(EmployeeTPC.class, id);
             if (getEmployee != null) {
                 return getEmployee;
             }
@@ -99,10 +99,10 @@ public class PersonTablePerClassDao {
         return null;
     }
 
-    public Person getStudent(Serializable id) {
+    public StudentTPC getStudentTPC(Serializable id) {
         Session session = sessionFactory.openSession();
         try {
-            Person getStudent = session.get(Student.class, id);
+            StudentTPC getStudent = session.get(StudentTPC.class, id);
             if (getStudent != null) {
                 return getStudent;
             }

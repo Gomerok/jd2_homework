@@ -5,16 +5,16 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "STUDENT")
+@Table(name = "STUDENT_JOINED")
 @PrimaryKeyJoinColumn(name = "PERSON_ID")
-public class Student extends Person {
+public class StudentJ extends PersonJ {
     private String faculty;
     private Double mark;
 
-    public Student() {
+    public StudentJ() {
     }
 
-    public Student(String name, String email, String faculty, Double mark) {
+    public StudentJ(String name, String email, String faculty, Double mark) {
         super(name, email);
         this.faculty = faculty;
         this.mark = mark;

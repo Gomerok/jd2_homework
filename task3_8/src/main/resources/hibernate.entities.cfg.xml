@@ -12,14 +12,14 @@
         <property name="show_sql">true</property>
         <!--<mapping class="by.academy.it.company.Employee"/>-->
         <mapping package="by.academy.it.entities"/>
-        <mapping class="by.academy.it.entities.personJoined.Person"/>
-        <mapping class="by.academy.it.entities.personJoined.Employee"/>
-        <mapping class="by.academy.it.entities.personJoined.Student"/>
-<!--        <mapping class="by.academy.it.entities.personSingleTable.Person"/>-->
-<!--        <mapping class="by.academy.it.entities.personSingleTable.Employee"/>-->
-<!--        <mapping class="by.academy.it.entities.personSingleTable.Student"/>-->
-<!--        <mapping class="by.academy.it.entities.personTablePerClass.Person"/>-->
-<!--        <mapping class="by.academy.it.entities.personTablePerClass.Employee"/>-->
-<!--        <mapping class="by.academy.it.entities.personTablePerClass.Student"/>-->
+        <mapping class="by.academy.it.entities.personJoined.PersonJ"/>
+        <mapping class="by.academy.it.entities.personJoined.EmployeeJ"/>
+        <mapping class="by.academy.it.entities.personJoined.StudentJ"/>
+        <mapping class="by.academy.it.entities.personSingleTable.PersonST"/>
+        <mapping class="by.academy.it.entities.personSingleTable.EmployeeST"/>
+        <mapping class="by.academy.it.entities.personSingleTable.StudentST"/>
+        <mapping class="by.academy.it.entities.personTablePerClass.PersonTPC"/>
+        <mapping class="by.academy.it.entities.personTablePerClass.EmployeeTPC"/>
+        <mapping class="by.academy.it.entities.personTablePerClass.StudentTPC"/>
     </session-factory>
 </hibernate-configuration>

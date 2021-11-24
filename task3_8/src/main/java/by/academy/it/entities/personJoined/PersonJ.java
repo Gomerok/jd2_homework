@@ -1,15 +1,13 @@
-package by.academy.it.entities.personSingleTable;
+package by.academy.it.entities.personJoined;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PERSON")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "PERSON_TYPE", discriminatorType = DiscriminatorType.CHAR)
-@DiscriminatorValue("P")
-public class Person {
+@Table(name = "PERSON_JOINED")
+@Inheritance(strategy = InheritanceType.JOINED)
+public class PersonJ {
     @Id
     @Column(name = "PERSON_ID")
     @GeneratedValue(generator = "uuid-generator")
@@ -22,10 +20,10 @@ public class Person {
     @Column
     private String email;
 
-    public Person() {
+    public PersonJ() {
     }
 
-    public Person(String name, String email) {
+    public PersonJ(String name, String email) {
         this.name = name;
         this.email = email;
     }

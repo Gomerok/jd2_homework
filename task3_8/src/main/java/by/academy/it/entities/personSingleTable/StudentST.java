@@ -1,19 +1,20 @@
-package by.academy.it.entities.personTablePerClass;
+package by.academy.it.entities.personSingleTable;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "STUDENT")
-public class Student extends Person {
+@Table(name = "STUDENT_SINGLETABLE")
+@DiscriminatorValue("S")
+public class StudentST extends PersonST {
     private String faculty;
     private Double mark;
 
-    public Student() {
+    public StudentST() {
     }
 
-    public Student(String name, String email, String faculty, Double mark) {
+    public StudentST(String name, String email, String faculty, Double mark) {
         super(name, email);
         this.faculty = faculty;
         this.mark = mark;

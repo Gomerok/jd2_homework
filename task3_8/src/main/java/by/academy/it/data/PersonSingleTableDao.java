@@ -1,8 +1,8 @@
 package by.academy.it.data;
 
-import by.academy.it.entities.personSingleTable.Employee;
-import by.academy.it.entities.personSingleTable.Person;
-import by.academy.it.entities.personSingleTable.Student;
+import by.academy.it.entities.personSingleTable.EmployeeST;
+import by.academy.it.entities.personSingleTable.PersonST;
+import by.academy.it.entities.personSingleTable.StudentST;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -20,7 +20,7 @@ public class PersonSingleTableDao {
         this(SessionFactoryHolder.getSessionFactory());
     }
 
-    public Serializable savePerson(Person person) {
+    public Serializable savePersonST(PersonST person) {
         Session session = sessionFactory.openSession();
         final Transaction transaction = session.beginTransaction();
         try {
@@ -36,7 +36,7 @@ public class PersonSingleTableDao {
         }
     }
 
-    public Serializable saveEmployee(Employee employee) {
+    public Serializable saveEmployeeST(EmployeeST employee) {
         Session session = sessionFactory.openSession();
         final Transaction transaction = session.beginTransaction();
         try {
@@ -52,7 +52,7 @@ public class PersonSingleTableDao {
         }
     }
 
-    public Serializable saveStudent(Student student) {
+    public Serializable saveStudentST(StudentST student) {
         Session session = sessionFactory.openSession();
         final Transaction transaction = session.beginTransaction();
         try {
@@ -68,10 +68,10 @@ public class PersonSingleTableDao {
         }
     }
 
-    public Person getPerson(Serializable id) {
+    public PersonST getPersonST(Serializable id) {
         Session session = sessionFactory.openSession();
         try {
-            Person getPerson = session.get(Person.class, id);
+            PersonST getPerson = session.get(PersonST.class, id);
             if (getPerson != null) {
                 return getPerson;
             }
@@ -83,10 +83,10 @@ public class PersonSingleTableDao {
         return null;
     }
 
-    public Person getEmployee(Serializable id) {
+    public EmployeeST getEmployee(Serializable id) {
         Session session = sessionFactory.openSession();
         try {
-            Person getEmployee = session.get(Employee.class, id);
+            EmployeeST getEmployee = session.get(EmployeeST.class, id);
             if (getEmployee != null) {
                 return getEmployee;
             }
@@ -98,10 +98,10 @@ public class PersonSingleTableDao {
         return null;
     }
 
-    public Person getStudent(Serializable id) {
+    public StudentST getStudentST(Serializable id) {
         Session session = sessionFactory.openSession();
         try {
-            Person getStudent = session.get(Student.class, id);
+            StudentST getStudent = session.get(StudentST.class, id);
             if (getStudent != null) {
                 return getStudent;
             }

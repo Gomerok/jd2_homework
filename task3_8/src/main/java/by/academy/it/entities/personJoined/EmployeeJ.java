@@ -1,21 +1,20 @@
-package by.academy.it.entities.personSingleTable;
+package by.academy.it.entities.personJoined;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "EMPLOYEE")
-@DiscriminatorValue("E")
-public class Employee extends Person {
+@Table(name = "EMPLOYEE_JOINED")
+@PrimaryKeyJoinColumn(name = "PERSON_ID")
+public class EmployeeJ extends PersonJ {
     private String company;
     private Double salary;
 
-    public Employee() {
+    public EmployeeJ() {
     }
 
-    public Employee(String name, String email, String company, Double salary) {
+    public EmployeeJ(String name, String email, String company, Double salary) {
         super(name, email);
         this.company = company;
         this.salary = salary;

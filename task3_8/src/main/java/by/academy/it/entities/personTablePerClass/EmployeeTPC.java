@@ -1,19 +1,18 @@
 package by.academy.it.entities.personTablePerClass;
 
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "EMPLOYEE")
-public class Employee extends Person {
+@Table(name = "EMPLOYEE_TABLEPERCLASS")
+public class EmployeeTPC extends PersonTPC {
     private String company;
     private Double salary;
 
-    public Employee() {
+    public EmployeeTPC() {
     }
 
-    public Employee(String name, String email, String company, Double salary) {
+    public EmployeeTPC(String name, String email, String company, Double salary) {
         super(name, email);
         this.company = company;
         this.salary = salary;

@@ -5,9 +5,9 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PERSON")
+@Table(name = "PERSON_TABLEPERCLASS")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Person {
+public class PersonTPC {
     @Id
     @Column(name = "PERSON_ID")
     @GeneratedValue(generator = "uuid-generator")
@@ -20,10 +20,10 @@ public class Person {
     @Column
     private String email;
 
-    public Person() {
+    public PersonTPC() {
     }
 
-    public Person(String name, String email) {
+    public PersonTPC(String name, String email) {
         this.name = name;
         this.email = email;
     }
