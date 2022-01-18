@@ -1,2 +1,11 @@
-D:\work\parking\ui\src\main\java\by\academy\it\main\Main.java
+D:\work\parking\ui\src\main\java\by\academy\it\context\WebInitializer.java
+D:\work\parking\ui\src\main\java\by\academy\it\service\WelcomeController.java
+D:\work\parking\ui\src\main\java\by\academy\it\service\HomeController.java
+D:\work\parking\ui\src\main\java\by\academy\it\service\SearchController.java
+D:\work\parking\ui\src\main\java\by\academy\it\web\EmployeeServlet.java
+D:\work\parking\ui\src\main\java\by\academy\it\service\AddUserPhotoController.java
+D:\work\parking\ui\src\main\java\by\academy\it\context\WebConfiguration.java
+D:\work\parking\ui\src\main\java\by\academy\it\service\SearchUserTicketController.java
+D:\work\parking\ui\src\main\java\by\academy\it\web\PersonServlet.java
+D:\work\parking\ui\src\main\java\by\academy\it\service\AddNewUserController.java
 D:\work\parking\ui\src\main\java\by\academy\it\web\ParkingServlet.java

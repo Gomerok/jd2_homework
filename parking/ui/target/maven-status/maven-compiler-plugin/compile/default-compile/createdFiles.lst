@@ -1,2 +1,9 @@
+by\academy\it\context\WebConfiguration.class
+by\academy\it\service\SearchUserTicketController.class
+by\academy\it\context\WebInitializer.class
+by\academy\it\service\WelcomeController.class
 by\academy\it\web\ParkingServlet.class
-by\academy\it\main\Main.class
+by\academy\it\service\AddNewUserController.class
+by\academy\it\service\AddUserPhotoController.class
+by\academy\it\service\HomeController.class
+by\academy\it\service\SearchController.class

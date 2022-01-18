@@ -29,4 +29,17 @@
             );
         </sql>
     </changeSet>
+
+    <changeSet id="4" author="gomerov">
+        <sql>
+            CREATE TABLE IF NOT EXISTS app_parking_user (
+            USER_LOGIN varchar(100) NOT NULL,
+            USER_PASSWORD varchar(100) NOT NULL,
+            APP_PARKING_USER_ID varchar(255) NOT NULL,
+            person_id int(11) NOT NULL,
+            PRIMARY KEY (APP_PARKING_USER_ID),
+            FOREIGN KEY (PERSON_ID) REFERENCES persons (id)
+            );
+        </sql>
+    </changeSet>
 </databaseChangeLog>

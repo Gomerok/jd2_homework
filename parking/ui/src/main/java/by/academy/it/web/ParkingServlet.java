@@ -1,46 +1,45 @@
 package by.academy.it.web;
 
-import by.academy.it.controller.TicketController;
-import jakarta.servlet.ServletConfig;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
+import by.academy.it.service.TicketService;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Date;
+import java.util.List;
 
-@WebServlet(name = "parkingServlet", urlPatterns = "/parking")
+//@WebServlet(name = "parkingServlet", urlPatterns = "/parking")
 public class ParkingServlet extends HttpServlet {
 
-    private TicketController controller;
+    private TicketService controller;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         try {
-            controller = new TicketController();
-        } catch (ClassNotFoundException e) {
+            controller = new TicketService();
+        } catch (Exception e) {
             throw new ServletException(e.getMessage(), e);
         }
-
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            HttpSession session = req.getSession();
             PrintWriter writer = resp.getWriter();
             resp.setContentType("text/html");
+            HttpSession session = req.getSession();
 
-            Date currentDate = new Date();
             String number = req.getParameter("number");
+            Date currentDate = new Date();
             List<String> messages = controller.handleTicketRequest(number, currentDate);
             messages.forEach(writer::println);
             writer.println("Car Number: " + number);
 
             session.setAttribute("number", number);
-            addParkingCookie(resp, number);
+            addParkingCookies(resp, number);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,7 +50,7 @@ public class ParkingServlet extends HttpServlet {
         doGet(req, resp);
     }
 
-    private void addParkingCookie(HttpServletResponse resp, String number) {
+    private void addParkingCookies(HttpServletResponse resp, String number) {
         Cookie cookie = new Cookie("PLATENUMBER", number);
         cookie.setMaxAge(300);
         resp.addCookie(cookie);
