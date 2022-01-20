@@ -1,7 +1,9 @@
 by\academy\it\context\WebConfiguration.class
+by\academy\it\security\WebSecurityInitializer.class
 by\academy\it\service\SearchUserTicketController.class
 by\academy\it\context\WebInitializer.class
 by\academy\it\service\WelcomeController.class
+by\academy\it\security\WebSecurityConfiguration.class
 by\academy\it\web\ParkingServlet.class
 by\academy\it\service\AddNewUserController.class
 by\academy\it\service\AddUserPhotoController.class
